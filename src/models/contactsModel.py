@@ -1,5 +1,5 @@
 from models.model import Model
 
 class ContactsModel(Model):
-    path = "..\\data\\comment.json"
+    path = "src\\data\\comment.json"
     pass
