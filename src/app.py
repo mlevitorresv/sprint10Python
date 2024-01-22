@@ -11,12 +11,14 @@ args = parser.parse_args()
 
 action = args.action
 
+my_actions = {
+    'read-users': UsersModel().list,
+    'read-rooms': RoomsModel().list,
+    'read-bookings': BookingsModel().list,
+    'read-contacts': ContactsModel().list
+    }
 
-if action == 'read-users':
-    UsersModel.list()
-elif action == 'read-rooms':
-    RoomsModel.list()
-elif action == 'read-bookings':
-    BookingsModel.list()
-elif action == 'read-contacts':
-    ContactsModel.list()
+if action in my_actions:
+    my_actions[action]()
+else:
+    print(f'action no recognized {action}')
