@@ -1,5 +1,5 @@
-from model import Model
+from models.model import Model
 
 class UsersModel(Model):
-    path = "..\data\users.json"
+    path = "..\\data\\users.json"
     pass

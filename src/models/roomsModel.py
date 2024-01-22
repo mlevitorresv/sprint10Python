@@ -1,5 +1,5 @@
-from model import Model
+from models.model import Model
 
 class RoomsModel(Model):
-    path = "..\data\\rooms.json"
+    path = "..\\data\\rooms.json"
     pass
