@@ -1,9 +1,11 @@
 import argparse
 from models.usersModel import UsersModel;
 from models.roomsModel import RoomsModel;
+from models.bookingsModel import BookingsModel;
+from models.contactsModel import ContactsModel;
 
 
-parser = parser = argparse.ArgumentParser(description='options to management elements')
+parser  = argparse.ArgumentParser(description='options to management elements')
 parser.add_argument('action')
 args = parser.parse_args()
 
@@ -11,14 +13,10 @@ action = args.action
 
 
 if action == 'read-users':
-    User = UsersModel()
-    User.list()
+    UsersModel.list()
 elif action == 'read-rooms':
-    Room = RoomsModel()
-    Room.list()
+    RoomsModel.list()
 elif action == 'read-bookings':
-    Room = RoomsModel()
-    Room.list()
+    BookingsModel.list()
 elif action == 'read-contacts':
-    Room = RoomsModel()
-    Room.list()
+    ContactsModel.list()
