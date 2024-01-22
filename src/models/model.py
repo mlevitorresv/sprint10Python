@@ -3,7 +3,7 @@ from abc import ABC
 class Model(ABC):
     
     @classmethod
-    def list(cls):
-        print(cls)
+    def list(path):
+        print(f"Listing from {path}")
 
     pass
