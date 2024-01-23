@@ -20,6 +20,10 @@ my_actions = {
     'read-room-id': RoomsModel().view,
     'read-booking-id': BookingsModel().view,
     'read-contact-id': ContactsModel().view,
+    'create-user': UsersModel().create,
+    'create-room': RoomsModel().create,
+    'create-booking': BookingsModel().create,
+    'create-contact': ContactsModel().create,
     }
 
 if action in my_actions:

@@ -27,9 +27,9 @@ class Model(ABC):
     def delete():
         pass
 
-    # @abstractmethod
-    # def create():
-    #     pass
+    @abstractmethod
+    def create():
+        pass
 
     # @abstractmethod
     # def update():
