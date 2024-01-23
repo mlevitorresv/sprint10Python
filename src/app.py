@@ -24,6 +24,14 @@ my_actions = {
     'create-room': RoomsModel().create,
     'create-booking': BookingsModel().create,
     'create-contact': ContactsModel().create,
+    'update-user': UsersModel().update,
+    'update-room': RoomsModel().update,
+    'update-booking': BookingsModel().update,
+    'update-contact': ContactsModel().update,
+    'delete-user': UsersModel().delete,
+    'delete-room': RoomsModel().delete,
+    'delete-booking': BookingsModel().delete,
+    'delete-contact': ContactsModel().delete,
     }
 
 if action in my_actions:
