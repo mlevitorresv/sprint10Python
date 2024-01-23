@@ -26,3 +26,6 @@ class RoomsModel(Model):
         self.data['discount'] = int(input('Enter discount: '))
         self.data['available'] = input('Enter available: ')
         print(f'the data was collected correctly \n {self.data}')
+
+    def update():
+        pass

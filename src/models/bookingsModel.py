@@ -32,3 +32,6 @@ class BookingsModel(Model):
         self.data['status'] = input('Enter status: ')
         print(f'the data was collected correctly \n {self.data}')
 
+    def update():
+        pass
+

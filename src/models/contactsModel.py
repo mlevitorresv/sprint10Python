@@ -23,3 +23,6 @@ class ContactsModel(Model):
         self.data['description'] = input('Enter description: ')
         self.data['status'] = input('Enter status: ')
         print(f'the data was collected correctly \n {self.data}')
+
+    def update():
+        pass

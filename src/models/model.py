@@ -31,6 +31,6 @@ class Model(ABC):
     def create():
         pass
 
-    # @abstractmethod
-    # def update():
-    #     pass
+    @abstractmethod
+    def update():
+        pass
