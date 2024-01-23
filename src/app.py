@@ -15,10 +15,14 @@ my_actions = {
     'read-users': UsersModel().list,
     'read-rooms': RoomsModel().list,
     'read-bookings': BookingsModel().list,
-    'read-contacts': ContactsModel().list
+    'read-contacts': ContactsModel().list,
+    'read-user-id': UsersModel().view,
+    'read-room-id': RoomsModel().view,
+    'read-booking-id': BookingsModel().view,
+    'read-contact-id': ContactsModel().view,
     }
 
 if action in my_actions:
     my_actions[action]()
 else:
-    print(f'action no recognized {action}')
+    print(f'action not recognized {action}')
