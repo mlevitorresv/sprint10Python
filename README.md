@@ -2,6 +2,7 @@
 A Python program for managing a hotel, allowing the creation of users, rooms, reservations, and the management of user feedback about the hotel. The program is designed to be operated through the command-line interface, utilizing argparse actions for all the aforementioned functionalities.
 
 #📓How to Use 💻:
+
 1.Clone this project with: git clone https://github.com/mlevitorresv/sprint10Python.git
 2.Create a virtual environment with: python -m venv env
 3.Activate the virtual environment with: source /env/bin/activate
