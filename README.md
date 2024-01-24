@@ -3,11 +3,11 @@ A Python program for managing a hotel, allowing the creation of users, rooms, re
 
 #📓How to Use 💻:
 
-1.Clone this project with: git clone https://github.com/mlevitorresv/sprint10Python.git
-2.Create a virtual environment with: python -m venv env
-3.Activate the virtual environment with: source /env/bin/activate
-4.Install requirements with: pip install -r requirements.txt
-5.Get it running! Execute: python src/app.py [action]
+1.Clone this project with: git clone https://github.com/mlevitorresv/sprint10Python.git<br/>
+2.Create a virtual environment with: python -m venv env<br/>
+3.Activate the virtual environment with: source /env/bin/activate<br/>
+4.Install requirements with: pip install -r requirements.txt<br/>
+5.Get it running! Execute: python src/app.py [action]<br/>
 
 ```python
 actions = {
