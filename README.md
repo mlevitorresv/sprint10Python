@@ -1,7 +1,7 @@
 <h1>Hotel Management</h1><br/>
 A Python program for managing a hotel, allowing the creation of users, rooms, reservations, and the management of user feedback about the hotel. The program is designed to be operated through the command-line interface, utilizing argparse actions for all the aforementioned functionalities.
 
-<h1>📓How to Use 💻</h1>:
+<h3>📓How to Use 💻</h3>
 
 <ol>
     <li>Clone this project with: git clone https://github.com/mlevitorresv/sprint10Python.git</li>
