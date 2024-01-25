@@ -8,7 +8,7 @@ class Model(ABC):
         print(f"Listing from {cls.path}")
         f = open(cls.path)
         data = json.load(f)
-        print(data)
+        return(data)
 
     @classmethod
     def view(cls):
@@ -21,7 +21,7 @@ class Model(ABC):
         
         for i in data:
             if i['id'] == int(find_id):
-                print(i)
+                return(i)
     
     @classmethod
     def delete():
