@@ -24,5 +24,12 @@ class ContactsModel(Model):
         self.data['status'] = input('Enter status: ')
         print(f'the data was collected correctly \n {self.data}')
 
-    def update():
-        pass
+    def update(self):
+        contact_modify = self.view()
+        print(f"Element to modify:\n{contact_modify}")
+
+        field = input('Enter field to modify\n')
+        data = input(f'Enter data to {field}\n')
+
+        contact_modify[field] = data
+        print(contact_modify)

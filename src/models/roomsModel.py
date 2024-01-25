@@ -27,5 +27,12 @@ class RoomsModel(Model):
         self.data['available'] = input('Enter available: ')
         print(f'the data was collected correctly \n {self.data}')
 
-    def update():
-        pass
+    def update(self):
+        room_modify = self.view()
+        print(f"Element to modify:\n{room_modify}")
+
+        field = input('Enter field to modify\n')
+        data = input(f'Enter data to {field}\n')
+
+        room_modify[field] = data
+        print(room_modify)

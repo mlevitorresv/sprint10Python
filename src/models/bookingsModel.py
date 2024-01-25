@@ -32,6 +32,13 @@ class BookingsModel(Model):
         self.data['status'] = input('Enter status: ')
         print(f'the data was collected correctly \n {self.data}')
 
-    def update():
-        pass
+    def update(self):
+        booking_modify = self.view()
+        print(f"Element to modify:\n{booking_modify}")
+
+        field = input('Enter field to modify\n')
+        data = input(f'Enter data to {field}\n')
+
+        booking_modify[field] = data
+        print(booking_modify)
 

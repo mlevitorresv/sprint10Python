@@ -24,5 +24,21 @@ class UsersModel(Model):
         self.data['status'] = input('Enter status: ')
         print(f'the data was collected correctly \n {self.data}')
 
-    def update():
-        pass
+    def update(self):
+        user_modify = self.view()
+        print(f"Element to modify:\n{user_modify}")
+
+        field = input('Enter field to modify\n')
+        data = input(f'Enter data to {field}\n')
+
+        user_modify[field] = data
+        print(user_modify)
+
+
+
+
+
+
+
+
+        
