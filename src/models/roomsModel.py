@@ -17,15 +17,18 @@ class RoomsModel(Model):
 
     def create(self):
         self.data['photo'] = input('Enter photo: ')
+        
         while True:
             try:
                 self.data['id'] = int(input('Enter id: '))
                 break
             except ValueError:
                 print('Error: Enter a valid id')
+                
         self.data['type'] = input('Enter type: ')
         self.data['bed'] = input('Enter bed: ')
         self.data['amenities'] = input('Enter amenities: ')
+        
         while True:
             try:
                 self.data['rate'] = float(input('Enter rate: '))
@@ -53,9 +56,11 @@ class RoomsModel(Model):
     def update(self):
         room_modify = self.view()
         print(f"Element to modify:\n{room_modify}")
-
-        field = input('Enter field to modify\n')
+        field = ''
+        
+        while field not in room_modify:
+            field = input('Enter an existing field to modify\n')
+        
         data = input(f'Enter data to {field}\n')
-
         room_modify[field] = data
         print(room_modify)

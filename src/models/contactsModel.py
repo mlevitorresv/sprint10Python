@@ -39,8 +39,11 @@ class ContactsModel(Model):
     def update(self):
         contact_modify = self.view()
         print(f"Element to modify:\n{contact_modify}")
-
-        field = input('Enter field to modify\n')
+        field = ''
+        
+        while field not in contact_modify:
+            field = input('Enter an existing field to modify\n')
+            
         data = input(f'Enter data to {field}\n')
 
         contact_modify[field] = data

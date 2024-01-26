@@ -25,7 +25,8 @@ class BookingsModel(Model):
                 self.data['id'] = int(input('Enter id: '))
                 break
             except ValueError:
-                print('Error: Enter a valid id')        
+                print('Error: Enter a valid id')  
+              
         self.data['name'] = input('Enter name: ')
         self.data['orderDate'] = input('Enter orderDate: ')
         self.data['orderTime'] = input('Enter orderTime: ')
@@ -41,6 +42,7 @@ class BookingsModel(Model):
                 break
             except ValueError:
                 print('Error: Enter a valid roomId')
+
         self.data['status'] = input('Enter status: ')
         print(f'the data was collected correctly \n {self.data}')
 
@@ -49,8 +51,11 @@ class BookingsModel(Model):
     def update(self):
         booking_modify = self.view()
         print(f"Element to modify:\n{booking_modify}")
-
-        field = input('Enter field to modify\n')
+        field = ''
+        
+        while field not in booking_modify:
+            field = input('Enter an existing field to modify\n')
+            
         data = input(f'Enter data to {field}\n')
 
         booking_modify[field] = data
