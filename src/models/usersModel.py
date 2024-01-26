@@ -26,7 +26,7 @@ class UsersModel(Model):
         self.data['email'] = input('Enter email: ')
         while True:
             try:
-                self.data['phone'] = input('Enter phone: ')
+                self.data['phone'] = int(input('Enter phone: '))
                 break
             except ValueError:
                 print('Error: Enter a valid phone')
