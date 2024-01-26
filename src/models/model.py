@@ -5,23 +5,18 @@ class Model(ABC):
     
     @classmethod
     def list(cls):
-        print(f"Listing from {cls.path}")
-        f = open(cls.path)
-        data = json.load(f)
-        return(data)
+        with open(cls.path) as file:
+            return(file.read())
 
     @classmethod
     def view(cls):
-        print(f"Listing from {cls.path}")
-        f = open(cls.path)
-        data = json.load(f)
-
-        print('Enter id of element')
-        find_id = input()
-        
-        for i in data:
-            if i['id'] == int(find_id):
-                return(i)
+        with open(cls.path) as file:
+            data = json.load(file)
+            
+            find_id = input('Enter id of element:\n')            
+            for i in data:
+                if i['id'] == int(find_id):
+                    return(i)
     
     @classmethod
     def delete():
