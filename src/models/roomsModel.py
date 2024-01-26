@@ -17,13 +17,36 @@ class RoomsModel(Model):
 
     def create(self):
         self.data['photo'] = input('Enter photo: ')
-        self.data['id'] = int(input('Enter id: '))
+        while True:
+            try:
+                self.data['id'] = int(input('Enter id: '))
+                break
+            except ValueError:
+                print('Error: Enter a valid id')
         self.data['type'] = input('Enter type: ')
         self.data['bed'] = input('Enter bed: ')
         self.data['amenities'] = input('Enter amenities: ')
-        self.data['rate'] = int(input('Enter rate: '))
-        self.data['price'] = int(input('Enter price: '))
-        self.data['discount'] = int(input('Enter discount: '))
+        while True:
+            try:
+                self.data['rate'] = float(input('Enter rate: '))
+                break
+            except ValueError:
+                print('Error: Enter a valid rate')
+
+        while True:
+            try:
+                self.data['price'] = float(input('Enter price: '))
+                break
+            except ValueError:
+                print('Error: Enter a valid price')
+
+        while True:
+            try:
+                self.data['discount'] = int(input('Enter discount: '))
+                break
+            except ValueError:
+                print('Error: Enter a valid discount')  
+                      
         self.data['available'] = input('Enter available: ')
         print(f'the data was collected correctly \n {self.data}')
 
