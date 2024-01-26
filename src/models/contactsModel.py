@@ -34,7 +34,7 @@ class ContactsModel(Model):
                 print('Error: Enter a valid phone')        
         self.data['description'] = input('Enter description: ')
         self.data['status'] = input('Enter status: ')
-        print(f'the data was collected correctly \n {self.data}')
+        return(f'the data was collected correctly \n {self.data}')
 
     def update(self):
         contact_modify = self.view()
@@ -47,4 +47,4 @@ class ContactsModel(Model):
         data = input(f'Enter data to {field}\n')
 
         contact_modify[field] = data
-        print(contact_modify)
+        return(contact_modify)

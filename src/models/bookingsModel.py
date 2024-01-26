@@ -44,7 +44,7 @@ class BookingsModel(Model):
                 print('Error: Enter a valid roomId')
 
         self.data['status'] = input('Enter status: ')
-        print(f'the data was collected correctly \n {self.data}')
+        return(f'the data was collected correctly \n {self.data}')
 
 
 
@@ -59,5 +59,5 @@ class BookingsModel(Model):
         data = input(f'Enter data to {field}\n')
 
         booking_modify[field] = data
-        print(booking_modify)
+        return(booking_modify)
 

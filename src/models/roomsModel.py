@@ -51,7 +51,7 @@ class RoomsModel(Model):
                 print('Error: Enter a valid discount')  
                       
         self.data['available'] = input('Enter available: ')
-        print(f'the data was collected correctly \n {self.data}')
+        return(f'the data was collected correctly \n {self.data}')
 
     def update(self):
         room_modify = self.view()
@@ -63,4 +63,4 @@ class RoomsModel(Model):
         
         data = input(f'Enter data to {field}\n')
         room_modify[field] = data
-        print(room_modify)
+        return(room_modify)

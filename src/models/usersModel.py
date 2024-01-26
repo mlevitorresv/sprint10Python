@@ -36,7 +36,7 @@ class UsersModel(Model):
                 
         self.data['description'] = input('Enter description: ')
         self.data['status'] = input('Enter status: ')
-        print(f'the data was collected correctly \n {self.data}')
+        return(f'the data was collected correctly \n {self.data}')
 
 
 
@@ -50,7 +50,7 @@ class UsersModel(Model):
         
         data = input(f'Enter data to {field}\n')
         user_modify[field] = data
-        print(user_modify)
+        return(user_modify)
 
 
 

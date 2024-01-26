@@ -16,7 +16,8 @@ def read_rooms():
 def read_room():
     print(RoomsModel.view())
 def create_room():
-    print(RoomsModel.create())
+    room = RoomsModel()
+    print(room.create())
 def update_room():
     print(RoomsModel.update())
 def delete_room():
@@ -27,7 +28,8 @@ def read_users():
 def read_user():
     print(UsersModel.view())
 def create_user():
-    print(UsersModel.create())
+    user = UsersModel()
+    print(user.create())
 def update_user():
     print(UsersModel.update())
 def delete_user():
@@ -38,7 +40,8 @@ def read_contacts():
 def read_contact():
     print(ContactsModel.view())
 def create_contact():
-    print(ContactsModel.create())
+    contact = ContactsModel()
+    print(contact.create())
 def update_contact():
     print(ContactsModel.update())
 def delete_contact():
@@ -49,7 +52,8 @@ def read_bookings():
 def read_booking():
     print(BookingsModel.view())
 def create_booking():
-    print(BookingsModel.create())
+    booking = BookingsModel()
+    print(booking.create())
 def update_booking():
     print(BookingsModel.update())
 def delete_booking():
