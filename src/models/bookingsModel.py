@@ -19,7 +19,13 @@ class BookingsModel(Model):
 
     def create(self):
         self.data['photo'] = input('Enter photo: ')
-        self.data['id'] = int(input('Enter id: '))
+        
+        while True:
+            try:
+                self.data['id'] = int(input('Enter id: '))
+                break
+            except ValueError:
+                print('Error: Enter a valid id')        
         self.data['name'] = input('Enter name: ')
         self.data['orderDate'] = input('Enter orderDate: ')
         self.data['orderTime'] = input('Enter orderTime: ')
@@ -28,9 +34,17 @@ class BookingsModel(Model):
         self.data['checkOut'] = input('Enter checkOut: ')
         self.data['checkOutTime'] = input('Enter checkOutTime: ')
         self.data['notes'] = input('Enter notes: ')
-        self.data['room'] = input('Enter room: ')
+        
+        while True:
+            try:
+                self.data['room'] = int(input('Enter roomId: '))
+                break
+            except ValueError:
+                print('Error: Enter a valid roomId')
         self.data['status'] = input('Enter status: ')
         print(f'the data was collected correctly \n {self.data}')
+
+
 
     def update(self):
         booking_modify = self.view()
