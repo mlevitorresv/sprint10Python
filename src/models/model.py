@@ -28,8 +28,17 @@ class Model(ABC):
         return data
         
     @classmethod
-    def delete():
-        pass
+    def delete(cls):
+        find_id = input('Enter id of element to delete:\n')    
+        cursor = mydb.cursor()
+        query = (f"DELETE FROM {cls.table} WHERE id = {find_id}")
+        cursor.execute(query)
+        mydb.commit()
+        data = cursor.rowcount, "record(s) deleted"
+        cursor.close()
+        mydb.close()
+        
+        return data
 
     @abstractmethod
     def create():
