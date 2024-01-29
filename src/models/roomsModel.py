@@ -1,7 +1,7 @@
 from models.model import Model
 
 class RoomsModel(Model):
-    path = "src\\data\\rooms.json"
+    table = "rooms"
     data = {
         'photo': '',
         'id': 0,

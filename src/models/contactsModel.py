@@ -1,7 +1,7 @@
 from models.model import Model
 
 class ContactsModel(Model):
-    path = "src\\data\\comment.json"
+    table = "comment"
     data = {
         'photo': '',
         'id': 0,

@@ -1,12 +1,19 @@
 from abc import ABC, abstractmethod
-import json
+from config.sql import mydb
+import mysql.connector
 
 class Model(ABC):
     
     @classmethod
     def list(cls):
-        with open(cls.path) as file:
-            return(file.read())
+        cursor = mydb.cursor()
+        query = (f"SELECT * FROM {cls.table}")
+        cursor.execute(query)
+        results = cursor.fetchall()
+        cursor.close()
+        mydb.close()
+        
+        return results
 
     @classmethod
     def view(cls):

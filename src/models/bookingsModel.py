@@ -1,7 +1,7 @@
 from models.model import Model
 
 class BookingsModel(Model):
-    path = "src\\data\\bookings.json"
+    table = "bookings"
     data = {
         'photo': 'http://dummyimage.com/150x100.png/dddddd/000000',
         'id': 0,
