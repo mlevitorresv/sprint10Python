@@ -83,6 +83,7 @@ my_actions = {
     'delete-contact': delete_contact,
     }
 
+
 if action in my_actions:
     my_actions[action]()
 else:
