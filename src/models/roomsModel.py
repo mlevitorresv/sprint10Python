@@ -74,9 +74,15 @@ class RoomsModel(Model):
         values = (self.data['number'], self.data['photo'], self.data['type'], self.data['bed'], amenities, self.data['description'], self.data['rate'], self.data['price'], self.data['discount'], self.data['available'])
         cursor.execute(query, values)
         mydb.commit()
-        print(cursor.rowcount, "record inserted.")
         
-        return(f'the data was collected correctly \n {self.data}')
+        query = (f"SELECT * FROM {self.table}")
+        cursor.execute(query)
+        results = cursor.fetchall()
+        
+
+        
+        return(f" all rooms: {results}")
+        
 
     def update(self):
         room_modify = self.view()

@@ -49,7 +49,14 @@ class ContactsModel(Model):
         values = (self.data['photo'], self.data['name'], self.data['email'], self.data['phone'], self.data['comment'], self.data['date'], self.data['dateTime'], self.data['archived'])
         cursor.execute(query, values)
         mydb.commit()
-        print(cursor.rowcount, "record inserted.")      
+        
+        query = (f"SELECT * FROM {self.table}")
+        cursor.execute(query)
+        results = cursor.fetchall()
+        
+
+        
+        return(f" all comments: {results}")  
         
         
         return(f'the data was collected correctly \n {self.data}')

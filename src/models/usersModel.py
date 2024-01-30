@@ -38,10 +38,14 @@ class UsersModel(Model):
         values = (self.data['photo'], self.data['name'], date.date(), self.data['email'], self.data['phone'], self.data['description'], self.data['status'])
         cursor.execute(query, values)
         mydb.commit()
-        print(cursor.rowcount, "record inserted.")
+        
+        query = (f"SELECT * FROM {self.table}")
+        cursor.execute(query)
+        results = cursor.fetchall()
+        
 
         
-        return(f'the data was collected correctly \n {self.data}')
+        return(f" all users: {results}")
 
 
 

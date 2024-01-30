@@ -56,10 +56,14 @@ class BookingsModel(Model):
         values = (self.data['photo'], self.data['name'], self.data['orderDate'], self.data['orderTime'], checkincomplete.date(), checkincomplete.time(), checkoutcomplete.date(), checkoutcomplete.time(), self.data['notes'], self.data['room'], self.data['status'])
         cursor.execute(query, values)
         mydb.commit()
-        print(cursor.rowcount, "record inserted.")
         
-                
-        return(f'the data was collected correctly \n {self.data}')
+        query = (f"SELECT * FROM {self.table}")
+        cursor.execute(query)
+        results = cursor.fetchall()
+        
+
+        
+        return(f" all bookings: {results}")
 
 
 
