@@ -1,29 +1,25 @@
 from models.model import Model
+from config.sql import mydb
+import datetime
+
+
 
 class ContactsModel(Model):
-    table = "comment"
+    table = "contacts"
     data = {
         'photo': '',
-        'id': 0,
         'name': '',
-        'date': '',
         'email': '',
         'phone': '',
-        'description': '',
-        'status': ''
+        'comment': '',
+        'date': '',
+        'dateTime': '',
+        'archived': ''
     }
 
     def create(self):
         self.data['photo'] = input('Enter photo: ')
-        
-        while True:
-            try:
-                self.data['id'] = int(input('Enter id: '))
-                break
-            except ValueError:
-                print('Error: Enter a valid id')
         self.data['name'] = input('Enter name: ')
-        self.data['date'] = input('Enter date: ')
         self.data['email'] = input('Enter email: ')
         
         while True:
@@ -32,8 +28,30 @@ class ContactsModel(Model):
                 break
             except ValueError:
                 print('Error: Enter a valid phone')        
-        self.data['description'] = input('Enter description: ')
-        self.data['status'] = input('Enter status: ')
+                
+        self.data['comment'] = input('Enter comment: ')
+        
+        dateComplete = datetime.datetime.now()
+        
+        self.data['date'] = dateComplete.date()
+        self.data['dateTime'] = dateComplete.time()
+        
+        
+        while True:
+            try:
+                self.data['archived'] = bool(input('Enter archived: '))
+                break
+            except ValueError:
+                print('Error: Enter a valid archived value (True or False)')
+        
+        cursor = mydb.cursor()
+        query = (f"INSERT INTO {self.table} (photo, name, email, phone, comment, date, dateTime, archived) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)")
+        values = (self.data['photo'], self.data['name'], self.data['email'], self.data['phone'], self.data['comment'], self.data['date'], self.data['dateTime'], self.data['archived'])
+        cursor.execute(query, values)
+        mydb.commit()
+        print(cursor.rowcount, "record inserted.")      
+        
+        
         return(f'the data was collected correctly \n {self.data}')
 
     def update(self):
