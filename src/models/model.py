@@ -6,7 +6,7 @@ class Model(ABC):
     
     @classmethod
     def list(cls):
-        cursor = mydb.cursor()
+        cursor = mydb.cursor(dictionary=True)
         query = (f"SELECT * FROM {cls.table}")
         cursor.execute(query)
         results = cursor.fetchall()
@@ -18,7 +18,7 @@ class Model(ABC):
     @classmethod
     def view(cls):
         find_id = input('Enter id of element:\n')    
-        cursor = mydb.cursor()
+        cursor = mydb.cursor(dictionary=True)
         query = (f"SELECT * FROM {cls.table} WHERE id = {find_id}")
         cursor.execute(query)
         data = cursor.fetchall()

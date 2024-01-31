@@ -31,7 +31,8 @@ def create_user():
     user = UsersModel()
     print(user.create())
 def update_user():
-    print(UsersModel.update())
+    user = UsersModel()
+    print(user.update())
 def delete_user():
     print(UsersModel.delete())
 
