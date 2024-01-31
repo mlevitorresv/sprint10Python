@@ -68,15 +68,30 @@ class BookingsModel(Model):
 
 
     def update(self):
+        cursor = mydb.cursor()
+        fields = {
+            '1': 'photo',
+            '2': 'name',
+            '3': 'checkInDate',
+            '4': 'checkOut',
+            '5': 'notes',
+            '6': 'room',
+            '7': 'status',
+            'q': 'quit'
+        }
+                
         booking_modify = self.view()
         print(f"Element to modify:\n{booking_modify}")
-        field = ''
+        choose = input(f'\n Choose field to modify (q for exit): {fields} \n')
         
-        while field not in booking_modify:
-            field = input('Enter an existing field to modify\n')
+        while choose != 'q':
+            data = input(f'\nEnter data to {fields[choose]}\n')
+            mydb.reconnect()
+            query = (f"UPDATE {self.table} SET {fields[choose]} = %s WHERE id = %s")
+            cursor.execute(query, (data, booking_modify[0]['id']))
+            mydb.commit()
+            choose = input(f'\n Choose other field to modify (q for exit): {fields} \n')
             
-        data = input(f'Enter data to {field}\n')
-
-        booking_modify[field] = data
-        return(booking_modify)
+        return 'Update completed.'
+        
 

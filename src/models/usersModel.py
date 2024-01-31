@@ -50,22 +50,28 @@ class UsersModel(Model):
 
 
     def update(self):
+        cursor = mydb.cursor()
+        fields = {
+            '1': 'photo',
+            '2': 'name',
+            '3': 'date',
+            '4': 'email',
+            '5': 'phone',
+            '6': 'description',
+            '7': 'status',
+            'q': 'quit'
+        }
+                
         user_modify = self.view()
         print(f"Element to modify:\n{user_modify}")
-        field = ''
+        choose = input(f'\n Choose field to modify (q for exit): {fields} \n')
         
-        while field not in user_modify:
-            field = input('Enter an existing field to modify\n')
-        
-        data = input(f'Enter data to {field}\n')
-        user_modify[field] = data
-        return(user_modify)
-
-
-
-
-
-
-
-
-        
+        while choose != 'q':
+            data = input(f'\nEnter data to {fields[choose]}\n')
+            mydb.reconnect()
+            query = (f"UPDATE {self.table} SET {fields[choose]} = %s WHERE id = %s")
+            cursor.execute(query, (data, user_modify[0]['id']))
+            mydb.commit()
+            choose = input(f'\n Choose other field to modify (q for exit): {fields} \n')
+            
+        return 'Update completed.'

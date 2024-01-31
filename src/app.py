@@ -19,7 +19,8 @@ def create_room():
     room = RoomsModel()
     print(room.create())
 def update_room():
-    print(RoomsModel.update())
+    room = RoomsModel()
+    print(room.update())
 def delete_room():
     print(RoomsModel.delete())
 
@@ -44,7 +45,8 @@ def create_contact():
     contact = ContactsModel()
     print(contact.create())
 def update_contact():
-    print(ContactsModel.update())
+    contact = ContactsModel()
+    print(contact.update())
 def delete_contact():
     print(ContactsModel.delete())
 
@@ -56,7 +58,8 @@ def create_booking():
     booking = BookingsModel()
     print(booking.create())
 def update_booking():
-    print(BookingsModel.update())
+    booking = BookingsModel()
+    print(booking.update())
 def delete_booking():
     print(BookingsModel.delete())
 
