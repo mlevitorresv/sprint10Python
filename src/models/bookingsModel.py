@@ -79,6 +79,9 @@ class BookingsModel(Model):
             '7': 'status',
             'q': 'quit'
         }
+        
+        fields_to_modify = []
+        data_to_fields = []
                 
         booking_modify = self.view()
         print(f"Element to modify:\n{booking_modify}")
@@ -86,12 +89,15 @@ class BookingsModel(Model):
         
         while choose != 'q':
             data = input(f'\nEnter data to {fields[choose]}\n')
-            mydb.reconnect()
-            query = (f"UPDATE {self.table} SET {fields[choose]} = %s WHERE id = %s")
-            cursor.execute(query, (data, booking_modify[0]['id']))
-            mydb.commit()
+            fields_to_modify.append(fields[choose])
+            data_to_fields.append(data)
             choose = input(f'\n Choose other field to modify (q for exit): {fields} \n')
+
+        set_clause = ','.join([f"{field} = %s" for field in fields_to_modify])
+        mydb.reconnect()
+        query = (f"UPDATE {self.table} SET {set_clause} WHERE id = %s")
+        cursor.execute(query, data_to_fields + [booking_modify[0]['id']])
+        mydb.commit()
             
         return 'Update completed.'
-        
 
