@@ -1,31 +1,44 @@
 from abc import ABC, abstractmethod
-import json
+from config.sql import mydb
+import mysql.connector
 
 class Model(ABC):
     
     @classmethod
     def list(cls):
-        print(f"Listing from {cls.path}")
-        f = open(cls.path)
-        data = json.load(f)
-        print(data)
+        cursor = mydb.cursor(dictionary=True)
+        query = (f"SELECT * FROM {cls.table}")
+        cursor.execute(query)
+        results = cursor.fetchall()
+        cursor.close()
+        mydb.close()
+        
+        return results
 
     @classmethod
     def view(cls):
-        print(f"Listing from {cls.path}")
-        f = open(cls.path)
-        data = json.load(f)
-
-        print('Enter id of element')
-        find_id = input()
+        find_id = input('Enter id of element:\n')    
+        cursor = mydb.cursor(dictionary=True)
+        query = (f"SELECT * FROM {cls.table} WHERE id = {find_id}")
+        cursor.execute(query)
+        data = cursor.fetchall()
+        cursor.close()
+        mydb.close()
         
-        for i in data:
-            if i['id'] == int(find_id):
-                print(i)
-    
+        return data
+        
     @classmethod
-    def delete():
-        pass
+    def delete(cls):
+        find_id = input('Enter id of element to delete:\n')    
+        cursor = mydb.cursor()
+        query = (f"DELETE FROM {cls.table} WHERE id = {find_id}")
+        cursor.execute(query)
+        mydb.commit()
+        data = cursor.rowcount, "record(s) deleted"
+        cursor.close()
+        mydb.close()
+        
+        return data
 
     @abstractmethod
     def create():
