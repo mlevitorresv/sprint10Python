@@ -1,5 +1,6 @@
 from models.model import Model
 from config.sql import mydb
+from utils import update_element
 import json
 
 class RoomsModel(Model):
@@ -85,7 +86,6 @@ class RoomsModel(Model):
         
 
     def update(self):
-        cursor = mydb.cursor()
         fields = {
             '1': 'number',
             '2': 'photo',
@@ -99,23 +99,4 @@ class RoomsModel(Model):
             '10': 'available',
             'q': 'quit'
         }
-        
-        fields_to_modify = []
-        data_to_fields = []
-                
-        room_modify = self.view()
-        print(f"Element to modify:\n{room_modify}")
-        choose = input(f'\n Choose field to modify (q for exit): {fields} \n')
-        while choose != 'q':
-            data = input(f'\nEnter data to {fields[choose]}\n')
-            fields_to_modify.append(fields[choose])
-            data_to_fields.append(data)
-            choose = input(f'\n Choose other field to modify (q for exit): {fields} \n')
-
-        set_clause = ','.join([f"{field} = %s" for field in fields_to_modify])
-        mydb.reconnect()
-        query = (f"UPDATE {self.table} SET {set_clause} WHERE id = %s")
-        cursor.execute(query, data_to_fields + [room_modify[0]['id']])
-        mydb.commit()
-            
-        return 'Update completed.'
+        print(update_element(fields, self))
